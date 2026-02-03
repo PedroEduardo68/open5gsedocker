@@ -12,8 +12,6 @@ systemctl start open5gs-bsfd
 systemctl start open5gs-udrd
 systemctl start open5gs-webui
 
-python3 -m http.server 80
-
 
 
 
