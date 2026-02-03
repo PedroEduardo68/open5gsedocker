@@ -9,9 +9,9 @@ services:
       MONGO_INITDB_DATABASE: open5gs
     ports:
       - "27017:27017"
-    networks:  
-      mongonet:
-        ipv4_address: 10.20.20.30
+    # networks:  
+    #   mongonet:
+    #     ipv4_address: 10.20.20.30
     volumes:
       - mongo_data:/data/db
       - ./init:/docker-entrypoint-initdb.d:ro
@@ -26,32 +26,32 @@ services:
     ports:
       - "8081:8081"
     networks:
-      mongonet:
+       mongonet:
         ipv4_address: 10.20.20.20
     environment:
-      ME_CONFIG_MONGODB_URL: mongodb://admin:admin@10.20.20.30:27017/admin
+      ME_CONFIG_MONGODB_URL: mongodb://admin:admin@mongo:27017/admin
       ME_CONFIG_BASICAUTH: "false" 
   
-  # open5gs:
-  #   build:
-  #     context: ./open5gs
-  #     dockerfile: Dockerfile
-  #   depends_on:
-  #     - mongo
-  #   networks:
-  #     ran:
-  #       ipv4_address: 192.168.98.10
-  #     mongo:
-  #       ipv4_address: 10.20.20.10
-  #   container_name: open5gs
-  #   ports:
-  #     - "8805:8805"
-  #     - "2123:2123"
-  #     - "60673:60673"
-  #     - "7777:7777"
-  #     - "5868:5868"
-  #     - "44513:44513"
-  #     - "9090:9090"
+  open5gs:
+    build:
+      context: ./open5gs
+      dockerfile: Dockerfile
+    depends_on:
+      - mongo
+    networks:
+      ran:
+        ipv4_address: 192.168.98.10
+      mongonet:
+        ipv4_address: 10.20.20.10
+    container_name: open5gs
+    ports:
+      - "8805:8805"
+      - "2123:2123"
+      - "60673:60673"
+      - "7777:7777"
+      - "5868:5868"
+      - "44513:44513"
+      - "9090:9090"
 
 
 volumes:
