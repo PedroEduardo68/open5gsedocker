@@ -16,7 +16,6 @@ services:
       - mongo_data:/data/db
       - ./init:/docker-entrypoint-initdb.d:ro
 
-
   mongo-express:
     image: mongo-express:1
     container_name: mongo-express
@@ -31,7 +30,6 @@ services:
     environment:
       ME_CONFIG_MONGODB_URL: mongodb://admin:admin@mongo:27017/admin
       ME_CONFIG_BASICAUTH: "false"
-
 
   open5gs:
     build:
@@ -53,6 +51,8 @@ services:
       - "5868:5868"
       - "44513:44513"
       - "9090:9090"
+
+
 
 
 volumes:
