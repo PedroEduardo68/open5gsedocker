@@ -32,6 +32,7 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://admin:admin@mongo:27017/admin
       ME_CONFIG_BASICAUTH: "false" 
   
+
   open5gs:
     build:
       context: ./open5gs
@@ -39,7 +40,7 @@ services:
     depends_on:
       - mongo
     networks:
-      ran:
+      ran: ### para colocar o USERSIMUE
         ipv4_address: 192.168.98.10
       mongonet:
         ipv4_address: 10.20.20.10
