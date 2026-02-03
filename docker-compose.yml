@@ -9,9 +9,9 @@ services:
       MONGO_INITDB_DATABASE: open5gs
     ports:
       - "27017:27017"
-    # networks:  
-    #   mongonet:
-    #     ipv4_address: 10.20.20.30
+    networks:  
+      mongonet:
+        ipv4_address: 10.20.20.30
     volumes:
       - mongo_data:/data/db
       - ./init:/docker-entrypoint-initdb.d:ro
