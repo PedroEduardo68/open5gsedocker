@@ -9,7 +9,7 @@ services:
       MONGO_INITDB_DATABASE: open5gs
     ports:
       - "27017:27017"
-    networks:  
+    networks:
       mongonet:
         ipv4_address: 10.20.20.30
     volumes:
@@ -30,8 +30,8 @@ services:
         ipv4_address: 10.20.20.20
     environment:
       ME_CONFIG_MONGODB_URL: mongodb://admin:admin@mongo:27017/admin
-      ME_CONFIG_BASICAUTH: "false" 
-  
+      ME_CONFIG_BASICAUTH: "false"
+
 
   open5gs:
     build:
