@@ -1,4 +1,3 @@
-  GNU nano 6.2                                                                                 go.sh                                                                                          
 #/bin/bash
 systemctl start open5gs-smfd
 systemctl start open5gs-amfd
@@ -13,7 +12,7 @@ systemctl start open5gs-bsfd
 systemctl start open5gs-udrd
 systemctl start open5gs-webui
 
-tail -f /dev/null
+python3 -m http.server 80
 
 
 
