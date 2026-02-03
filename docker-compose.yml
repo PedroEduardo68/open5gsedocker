@@ -1,0 +1,53 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: open5gs
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+      # Opcional: scripts de inicialização (criar DB/usuário app automaticamente)
+      # Coloque seus .js/.sh em ./init e descomente a linha abaixo
+      - ./init:/docker-entrypoint-initdb.d:ro
+
+  # UI web opcional para navegar nos dados
+  mongo-express:
+    image: mongo-express:1
+    container_name: mongo-express
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://admin:admin@mongo:27017/admin
+      ME_CONFIG_BASICAUTH: "false"  # defina "true" e configure usuário/senha se quiser proteger a UI
+  
+  open5gs:
+    build:
+      context: ./open5gs
+      dockerfile: Dockerfile
+    depends_on:
+      - mongo
+    container_name: open5gs
+    ports:
+      - "8805:8805"
+      - "2123:2123"
+      - "60673:60673"
+      - "7777:7777"
+      - "5868:5868"
+      - "44513:44513"
+      - "9090:9090"
+
+
+volumes:
+  mongo_data:
+
+
+
+

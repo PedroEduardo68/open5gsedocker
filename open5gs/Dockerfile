@@ -1,10 +1,8 @@
-FROM ubuntu:22.04
-WORKDIR /app
-##ENV container docker
-COPY . .
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install vim nano htop sudo curl systemd systemd-sysv ca-certificates curl gnupg software-properties-common nodejs npm -y
-RUN chmod +x open5gs.sh
-#RUN ./open5gs.sh
-ENTRYPOINT  ["/bin/bash"]
+FROM qoherent/open5gs:latest
+WORKDIR /etc/open5gs
+RUN apt-get update | apt-get install htop iputils-ping iproute2  -y 
+COPY /openconfig /config5gs
+RUN cp /config5gs/* /etc/open5gs/
+RUN chmod 777 /etc/open5gs/*
+CMD  ["/bin/bash","./go.sh"]
 #ENTRYPOINT  ["npm", "start"]                
