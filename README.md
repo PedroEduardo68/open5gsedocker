@@ -101,7 +101,7 @@ Durante a validação, recomenda-se coletar:
 
 #### Docker Compose up  funcionando dentro docker.
 <p align="center">
-  <img src="./img/sdocker compose up -d .png" width="500" title="UE">
+  <img src="./img/docker compose up -d .png" width="500" title="UE">
 </p>
 
 
