@@ -15,13 +15,11 @@ Este repositório contém:
 - `docker-compose.yml` – Orquestração dos serviços do Open5GS
 - `README.md` – Documentação completa (instalação, execução e validação)
 - `.env` – Arquivo de parametrização do ambiente
+
 ```bash
 MONGOUSER=
 MONGOPASS=
 ```
-
-- `start.sh` *(opcional)* – Script para subir o ambiente
-- `stop.sh` *(opcional)* – Script para derrubar o ambiente
 
 Evidências esperadas (a serem coletadas pelo avaliador):
 
@@ -81,10 +79,29 @@ docker compose up -d
 
 Durante a validação, recomenda-se coletar:
 
- Print do docker ps
+#### Sistemas operacional
+<p align="center">
+  <img src="./img/os .png" width="500" title="UE">
+</p>
 
- Logs do boot dos serviços principais
 
- Evidência de portas expostas (ss, nc, curl)
+#### Portas usada pelo Open5GS
+<p align="center">
+  <img src="./img/portas.png" width="500" title="UE">
+</p>
 
- Logs de healthcheck (se aplicável)
+
+
+#### Servico Funcionando usada pelo Open5GS visto pelo htop
+<p align="center">
+  <img src="./img/servico funcionando.png" width="500" title="UE">
+</p>
+
+
+
+#### Docker Compose up  funcionando dentro docker.
+<p align="center">
+  <img src="./img/sdocker compose up -d .png" width="500" title="UE">
+</p>
+
+
