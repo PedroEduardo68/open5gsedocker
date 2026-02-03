@@ -4,11 +4,11 @@
 
 Este repositório contém um ambiente **Open5GS 5G Core** orquestrado com **Docker Compose**, atendendo aos requisitos mínimos de inicialização do core, exposição de interfaces e validação de funcionamento.
 
-O objetivo é disponibilizar um **core 5G funcional**, pronto para integração futura com RAN/UE (ex.: UERANSIM).
+O objetivo é disponibilizar um **core 5G funcional**, pronto para integração futura com RAN/UE (ex.: UERANSIM), futuramente.
 
 ---
 
-## 📦 Entregáveis
+## 📦 Repositório
 
 Este repositório contém:
 
@@ -21,11 +21,6 @@ MONGOUSER=
 MONGOPASS=
 ```
 
-Evidências esperadas (a serem coletadas pelo avaliador):
-
-- Containers em execução (`docker ps`)
-- Logs de boot correto dos serviços do core
-- Evidência de conectividade e portas expostas (`ss`)
 
 ---
 
@@ -44,11 +39,6 @@ Todas as funções são executadas como **containers Docker**, orquestrados via 
 ## 🖥️ Requisitos do Sistema
 
 - Sistema operacional: **Ubuntu 22.04+** (ou equivalente Linux)
-- Docker:
-  ```bash
-  docker --version
-
-
 
 
 ###  1️⃣ Clonar o repositório
